@@ -1,5 +1,19 @@
 import { useState } from 'react'
 
+const History = (props) =>{
+  if(props.all==0){
+    return(
+      <>
+        <p>No feedback given</p>
+      </>
+    )
+  }
+  return(
+  <Statistics good={props.good} neutral={props.neutral} bad={props.bad}
+              all = {props.all} puntuation={props.puntuation}/>
+  )
+}
+
 
 const Button = (props) => {
   return(
@@ -58,10 +72,10 @@ const App = () => {
       <Button handleClick = {handleClickGood}  text="good" />
       <Button handleClick = {handleClickNeutral}  text="neutral" />
       <Button handleClick = {handleClickBad}  text="bad" />
-      <Statistics good={good} neutral={neutral} bad={bad}
-                  all = {all} puntuation={puntuation}
-      />
+      <History good={good} neutral={neutral} bad={bad}
+                  all = {all} puntuation={puntuation}/>
     </div>
+    
   )
 }
 
