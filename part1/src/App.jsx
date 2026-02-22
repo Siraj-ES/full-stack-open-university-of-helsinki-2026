@@ -28,22 +28,31 @@ const Statistics = (props) =>{
   const average = props.all === 0 ? 0: props.puntuation/props.all
   const positive = props.all ===0 ? 0: (props.good / props.all)*100
   return(
-    <>
-      <h1>statistics</h1>
-      <StatisticLine value = {props.good} text ="good"/> 
-      <StatisticLine value = {props.neutral} text ="neutral"/>
-      <StatisticLine value = {props.bad} text ="bad"/> 
-      <StatisticLine value = {average} text ="average"/> 
-      <StatisticLine value = {`${positive}%`} text ="positive"/> 
-    </>
+    <table>
+      <thead>
+        <tr>
+          <th>statistics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><StatisticLine value = {props.good} text ="good"/></tr>
+        <tr><StatisticLine value = {props.neutral} text ="neutral"/></tr>
+        <tr><StatisticLine value = {props.bad} text ="bad"/></tr>
+        <tr><StatisticLine value = {average} text ="average"/></tr>
+        <tr><StatisticLine value = {`${positive}%`} text ="positive"/></tr> 
+      </tbody>
+      
+    </table>
   )
 }
 
 const StatisticLine = (props) =>{
   return(
     <>
-      <p>{props.text} {props.value}</p>
-    </>
+      <td>{props.text}</td>
+      <td>{props.value}</td>
+    </> 
+    
   )
 }
 
